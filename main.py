@@ -3,8 +3,7 @@ import readfile as rf
 
 import constants as keys
 from telegram.ext import Updater, MessageHandler, Filters, CallbackContext, CommandHandler
-import telegram
-from telegram import Update, Bot
+from telegram import Update
 import responses as R
 
 
@@ -38,7 +37,7 @@ def downloader(update: Update, context: CallbackContext):
         context.bot.get_file(update.message.document).download(out=f)
 
 
-def error(update, context):
+def error(update: Update, context: CallbackContext):
     print(f"Update {update} caused error {context.error}")
 
 

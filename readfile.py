@@ -1,8 +1,6 @@
 import sqlite3
 import pandas as pd
 from telegram import Update
-import os
-
 
 # storing of data into database using sqlite
 # not sure if check_same_thread=False will cause any problems
