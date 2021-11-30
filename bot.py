@@ -91,7 +91,7 @@ def main():
     updater.start_webhook(listen="0.0.0.0",
                           port=int(PORT),
                           url_path=API_KEY)
-    updater.bot.setWebhook('https://calm-wildwood-33996.herokuapp.com/' + API_KEY)
+    updater.bot.setWebhook('https://hidden-temple-32433.herokuapp.com/' + API_KEY)
     updater.idle()
 
 
