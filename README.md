@@ -1,1 +1,0 @@
-Attempting to create a telegrambot that is capable of receiving information from a csv file and thereafter display to the user. The user will also be able to provide inputs that will be put through an algorithm and in turn stored in the same CSV file. The context will be for fitness regimes for weightlifting.

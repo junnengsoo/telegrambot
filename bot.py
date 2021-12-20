@@ -15,6 +15,7 @@ import pandas as pd
 import csv
 import urllib.request
 import logging
+import os
 
 # https://stackoverflow.com/questions/36872308/locking-telegram-custom-keyboard-buttons-for-multiple-inputs
 # inline keyboard testing
@@ -36,7 +37,7 @@ print("Bot Started...")
 # Stages
 FIRST, SECOND, THIRD = range(3)
 
-conn = sqlite3.connect('test3.db', check_same_thread=False)
+conn = sqlite3.connect(':memory:', check_same_thread=False)
 c = conn.cursor()
 
 query_list = []
