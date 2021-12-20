@@ -341,8 +341,8 @@ def build_menu(buttons, n_cols, header_buttons=None, footer_buttons=None):
 # https://stackoverflow.com/questions/16283799/how-to-read-a-csv-file-from-a-url-with-python/62614979#62614979
 
 
-# if __name__ == '__main__':
-#     main()
+if __name__ == '__main__':
+    main()
 
 # https://stackoverflow.com/questions/7831371/is-there-a-way-to-get-a-list-of-column-names-in-sqlite/7831685
 # mapping column headers of sql table
