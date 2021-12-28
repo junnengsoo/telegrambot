@@ -213,11 +213,6 @@ def error(update: Update, context: CallbackContext):
         elif 'duplicate column name' in str(context.error):
             text = 'There is a duplicate column name in your Google Sheets'
             context.bot.send_message(chat_id=update.effective_chat.id, text=text)
-        elif 'column' in str(context.error):
-            text = """Please edit the Google Sheets in the format of the following document:
-                   https://docs.google.com/spreadsheets/d/19wwdOS01lprzKgXXtZZ_bVM7bGJc9STpaaPnUQiEtFw/edit#gid=0.
-                   """
-            context.bot.send_message(chat_id=update.effective_chat.id, text=text)
         elif 'Message is not modified' in str(context.error):
             pass
         else:
