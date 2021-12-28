@@ -218,8 +218,10 @@ def error(update: Update, context: CallbackContext):
                    https://docs.google.com/spreadsheets/d/19wwdOS01lprzKgXXtZZ_bVM7bGJc9STpaaPnUQiEtFw/edit#gid=0.
                    """
             context.bot.send_message(chat_id=update.effective_chat.id, text=text)
+        elif 'Message is not modified' in str(context.error):
+            pass
         else:
-            context.bot.send_message(chat_id=update.effective_chat.id, text="Type /start to get started.")
+            context.bot.send_message(chat_id=update.effective_chat.id, text=f"Error {context.error}, text daddy Jun Neng to fix it!")
     except:
         text = f"Error {context.error}, text daddy Jun Neng to fix it!"
         context.bot.send_message(chat_id=update.effective_chat.id, text=text)
