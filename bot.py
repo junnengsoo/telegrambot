@@ -123,9 +123,15 @@ def display(update: Update, context: CallbackContext) -> int:
     query = update.callback_query
     global query_list
     query_list = query.data.split(" ")
-    context.bot.send_message(chat_id=update.effective_chat.id, text=f"{query.data} is added as a column header")
-    query.answer()
-    query.edit_message_text(text="Select other headers or click Done to end the selection!", reply_markup=reply_markup)
+    if query.data == 'done':
+        query.edit_message_text(text="Please select at least one column header!", reply_markup=reply_markup)
+
+        return SECOND
+    else:
+        context.bot.send_message(chat_id=update.effective_chat.id, text=f"{query.data} is added as a column header")
+        query.answer()
+        query.edit_message_text(text="Select other headers or click Done to end the selection!",
+                                reply_markup=reply_markup)
 
     return THIRD
 
@@ -149,7 +155,7 @@ def display_2(update: Update, context: CallbackContext) -> int:
 
 def cancel(update: Update, context: CallbackContext) -> int:
     """Cancels and ends the conversation."""
-    update.message.reply_text('Bye! I hope we can talk again some day.')
+    update.message.reply_text('Bye! I hope we can talk again some day.', reply_markup=ReplyKeyboardRemove())
 
     return ConversationHandler.END
 
