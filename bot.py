@@ -125,8 +125,6 @@ def display(update: Update, context: CallbackContext) -> int:
     query_list = query.data.split(" ")
     if query.data == 'done':
         query.edit_message_text(text="Please select at least one column header!", reply_markup=reply_markup)
-
-        return SECOND
     else:
         context.bot.send_message(chat_id=update.effective_chat.id, text=f"{query.data} is added as a column header")
         query.answer()
@@ -146,6 +144,8 @@ def display_2(update: Update, context: CallbackContext) -> int:
             text = f"{query.data} is already added as a column header, choose another header or click Done to end the selection!"
             context.bot.send_message(chat_id=update.effective_chat.id, text=text)
         del update.callback_query.data
+        return THIRD
+    elif query.data == 'done':
         return THIRD
     store_header(query_list)
     query.edit_message_text(text="I have received your input! Type /workout to receive your workout for today!")
