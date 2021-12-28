@@ -121,15 +121,16 @@ def edit_header(update: Update, context: CallbackContext) -> int:
 
 def display(update: Update, context: CallbackContext) -> int:
     query = update.callback_query
-    global query_list
-    query_list = query.data.split(" ")
     if query.data == 'done':
         query.edit_message_text(text="Please select at least one column header!", reply_markup=reply_markup)
-    else:
-        context.bot.send_message(chat_id=update.effective_chat.id, text=f"{query.data} is added as a column header")
-        query.answer()
-        query.edit_message_text(text="Select other headers or click Done to end the selection!",
-                                reply_markup=reply_markup)
+
+        return SECOND
+    global query_list
+    query_list = query.data.split(" ")
+    context.bot.send_message(chat_id=update.effective_chat.id, text=f"{query.data} is added as a column header")
+    query.answer()
+    query.edit_message_text(text="Select other headers or click Done to end the selection!",
+                            reply_markup=reply_markup)
 
     return THIRD
 
@@ -145,8 +146,8 @@ def display_2(update: Update, context: CallbackContext) -> int:
             context.bot.send_message(chat_id=update.effective_chat.id, text=text)
         del update.callback_query.data
         return THIRD
-    elif query.data == 'done':
-        return THIRD
+    # elif query.data == 'done' and query_list == 'done':
+    #     return THIRD
     store_header(query_list)
     query.edit_message_text(text="I have received your input! Type /workout to receive your workout for today!")
 
