@@ -25,7 +25,7 @@ import os
 
 
 PORT = int(os.environ.get('PORT', 5000))
-API_KEY = "2131896364:AAH6u2F3__TmQ7gIKNZpJA-K1HPajSQmFAA"
+API_KEY = TOKEN
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
